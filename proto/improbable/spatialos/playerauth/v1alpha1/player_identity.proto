@@ -1,0 +1,27 @@
+/// Provides methods to manage player tokens.
+
+syntax = "proto3";
+package improbable.spatialos.playerauth.v1alpha1;
+
+/// PlayerAuthenticationService provides methods for generation of player authentication.
+service PlayerTokenService {
+  /// Returns a new token required to access the requested project
+  rpc CreatePlayerToken (CreatePlayerTokenRequest) returns (CreatePlayerTokenResponse);
+}
+
+message PlayerToken {
+  string token = 1;
+}
+
+message CreatePlayerTokenRequest {
+  /// Player identifier, eg: username
+  string player_identifier = 1;
+
+  /// Name of the project player_identifier should access
+  string project_name = 2;
+}
+
+message CreatePlayerTokenResponse {
+  /// Token granting the player access to the requested project
+  PlayerToken token = 1;
+}
