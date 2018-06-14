@@ -37,13 +37,15 @@ namespace SpatialAPIExample
         /// </summary>
         public void AcquireAccessToken()
         {
+            var request = (HttpWebRequest) WebRequest.Create("https://auth.improbable.io/auth/v1/token");
+
             // The token API request body contains the refresh token.
             var requestBody = $"client_id={clientId}&client_secret={clientSecret}&refresh_token={refreshToken}&grant_type=refresh_token";
+            var data = Encoding.UTF8.GetBytes(requestBody);
 
-            var request = (HttpWebRequest) WebRequest.Create("https://auth.improbable.io/auth/v1/token");
-            var data = Encoding.ASCII.GetBytes(requestBody);
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
 
             using (var stream = request.GetRequestStream())
             {
