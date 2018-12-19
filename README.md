@@ -1,6 +1,1 @@
-# Platform API (ALPHA release)
-
-Platform API Protobuf definitions and usage examples.
-
-Documentation for the services defined in this repository is hosted
-[here](https://github.com/spatialos/platform-api/blob/master/docs/index.md).
+**This repository is now deprecated. To use the new Platform SDK, please visit [this page](https://docs.improbable.io/reference/13.5/platform-sdk/introduction).**
